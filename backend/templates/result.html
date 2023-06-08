@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animal Detection Result</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        ul {
+            text-align: center;
+        }
+
+        .imagee {
+            transform: scale(0.5, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+     
+
+        body {
+            align-items: center;
+            background-color: #55D370;
+        }
+
+        .predict {
+            font-size: 3rem;
+        }
+
+        .ul-size {
+            font-size: 2rem;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animal Detection Result</h1>
+    <h2>Uploaded Image:</h2>
+    <div class="imagee">
+        <img src="data:image/jpeg;base64,{{ image }}" alt="Uploaded Image" style="max-width: 500px">
+    </div>
+    <h2 class="predict">Top Predictions:</h2>
+    <ul class="ul-size">
+        {% for result in results %}
+        <li>{{ result[0] }}: {{ result[1] }}%</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

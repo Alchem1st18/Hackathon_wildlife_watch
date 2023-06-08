@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animal Detection</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: greenyellow;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            font-size: 40px;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+            background: linear-gradient(to bottom, #55D370, #800080);
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        .upload {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            margin-left: 130px;
+            font-size: 20px;
+        }
+
+        .done {
+            margin-bottom: 50px;
+        }
+
+        .titlee {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #45A049;
+        }
+    </style>
+    <script>
+        function clearFileInput() {
+            var fileInput = document.getElementById('imageInput');
+            fileInput.value = '';
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="titlee">ANIMAL DETECTION</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input id="imageInput" class="upload" type="file" name="image" accept="image/*" required><br>
+        <input class="done" type="submit" value="Detect">
+        <input class="done" type="button" value="Clear" onclick="clearFileInput()">
+    </form>
+</body>
+
+</html>
