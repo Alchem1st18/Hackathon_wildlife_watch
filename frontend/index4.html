@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The National Park</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* CSS styles for the website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("form/images/forest-3622519.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            /* Set the opacity value to 0.5 */
+            z-index: -1;
+        }
+
+        header {
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .park-image {
+            width: 100%;
+            height: 500px;
+            /* Set the desired height for the carousel images */
+            object-fit: cover;
+            /* Ensure the images maintain their aspect ratio */
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #f7b42c;
+            background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #f7b42c;
+            background-image: linear-gradient(315deg, #6023b5 0%, #07c345 74%);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .cylindrical-button {
+            padding: 15px 20px;
+            font-size: 40px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            /* Use a large value to create a cylindrical shape */
+            cursor: pointer;
+            margin: 5vh;
+        }
+
+        .cylindrical-button:hover {
+            background-color: #555;
+        }
+
+        .action-button:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            .park-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .park-image {
+                height: 150px;
+            }
+        }
+
+        .carousel-indicators li {
+            background-color: #000;
+        }
+
+        .carousel-control-next-icon,
+        .carousel-control-prev-icon {
+            background-color: #000;
+        }
+
+        .carousel-control-next-icon,
+        .carousel-control-prev-icon {
+            background-color: transparent;
+            background-image: linear-gradient(to right, #000, #555);
+            width: 40px;
+            /* Increase the size as desired */
+            height: 40px;
+            /* Increase the size as desired */
+            background-size: 100% 100%;
+        }
+
+        .carousel-control-next-icon,
+        .carousel-control-prev-icon {
+            background-color: transparent;
+            background-image: linear-gradient(to right, #10a1bb, #cf3535);
+            width: 40px;
+            /* Increase the size as desired */
+            height: 40px;
+            /* Increase the size as desired */
+            background-size: 100% 100%;
+            border-radius: 50%;
+            /* Make the border radius circular */
+        }
+
+        .carousel-control-next-icon::after {
+            content: ">";
+            /* Add ">" symbol */
+            font-size: 24px;
+            /* Adjust the font size as desired */
+            color: #fff;
+            /* Set the color of the ">" symbol */
+        }
+
+        .carousel-control-prev-icon::after {
+            content: "<";
+            /* Add ">" symbol */
+            font-size: 24px;
+            /* Adjust the font size as desired */
+            color: #fff;
+            /* Set the color of the ">" symbol */
+            transform: rotate(180deg);
+            /* Flip the ">" symbol for the previous button */
+        }
+
+        .carousel-item img {
+            height: 400px;
+            /* Adjust the height as desired */
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>GIR NATIONAL PARK</h2>
+    </header>
+
+    <section>
+        <p>Gir National Park, also known as Sasan Gir, is a renowned wildlife sanctuary located in the state of Gujarat,
+            India. Established in 1965, it is the only natural habitat of the majestic Asiatic lions outside of Africa,
+            making it a significant conservation area for this critically endangered species.</p>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="form/images/park3a.jpg" />
+                </div>
+                <div class="carousel-item">
+                    <img src="form/images/park3b.jpg" />
+                </div>
+                <div class="carousel-item">
+                    <img src="form/images/park3c.jpg" />
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="button-container">
+        <button class="action-button cylindrical-button" onclick="window.location.href='alert.html'">Activity
+            Log</button>
+        <button class="action-button cylindrical-button" onclick="window.location.href='camera.html'">Camera</button>
+        <button class="action-button cylindrical-button" onclick="window.location.href='sensors.html'">Sensor</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript functions for the button actions
+        function openCamera() {
+            // Code to open the camera goes here
+            console.log('Camera opened');
+        }
+
+        function activateSensor() {
+            // Code to activate the sensor goes here
+            console.log('Sensor activated');
+        }
+    </script>
+</body>
+
+</html>

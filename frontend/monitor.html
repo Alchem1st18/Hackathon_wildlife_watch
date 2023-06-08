@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page in HTML with CSS Code Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        function login() {
+            var email = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (email === 'admin.sundarban@gmail.com' && password === 'admin121') {
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box-form">
+        <div class="left">
+            <div class="overlay">
+                <h1>Wildlife Watch</h1>
+                <p class="intro">Empowering Conservation: Safeguarding Wildlife Habitats</p>
+                <span class="social-media-login">
+                    <p>Login with social media</p>
+                    <br>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                </span>
+            </div>
+        </div>
+
+        <div class="right">
+            <h5>Login</h5>
+            <p>Don't have an account? <a href="#">Create Your Account</a> It takes less than a minute</p>
+            <div class="inputs">
+                <input type="text" id="username" placeholder="Email">
+                <br>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+
+            <br><br>
+
+            <div class="remember-me--forget-password">
+                <label>
+                    <input type="checkbox" name="remember" checked />
+                    <span class="text-checkbox">Remember me</span>
+                </label>
+                <p>Forgot password?</p>
+            </div>
+
+            <br>
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+</body>
+
+</html>

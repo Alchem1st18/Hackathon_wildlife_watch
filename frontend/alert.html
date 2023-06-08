@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("form/images/—Pngtree—future\ technology\ line\ background_1597118.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 60px;
+        }
+
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e8f0fe;
+        }
+
+        .table-container {
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 10px;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-row td {
+            padding: 12px;
+        }
+
+        .blink {
+            animation: blinker 2s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #631717;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-left: 550px;
+
+        }
+
+        .back-button:hover {
+            background-color: #c08282;
+        }
+
+        .activity {
+            margin-bottom: 50px;
+            font-size: 4rem;
+            margin-top: 50px;
+            font-weight: bolder;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+
+    <script>
+        function goBack() {
+            window.history.go(-1);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="activity">ACTIVITY LOG</h1>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Time</th>
+                        <th>Animal Detected</th>
+                        <th colspan="2">Alert Status</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td>1</td>
+                        <td>00:50:53</td>
+                        <td>Elephant</td>
+                        <td colspan="2">
+                            <button class="btn btn-danger blink">Active</button>
+                        </td>
+                        <td>N 6° 16' 1.8336"</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>2</td>
+                        <td>11:32:14</td>
+                        <td>Tiger</td>
+                        <td colspan="2">
+                            <button class="btn btn-success">Deactive</button>
+                        </td>
+                        <td>E 77° 55' 41.4192</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>3</td>
+                        <td>18:40:35</td>
+                        <td>Lion</td>
+                        <td colspan="2">
+                            <button class="btn btn-danger blink">Active</button>
+                        </td>
+                        <td>E 47° 25' 21.4194</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>4</td>
+                        <td>13:40:05</td>
+                        <td>Elephant</td>
+                        <td colspan="2">
+                            <button class="btn btn-success">Deactive</button>
+                        </td>
+                        <td>E 70° 25' 88.4192</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>5</td>
+                        <td>14:40:55</td>
+                        <td>Giraffe</td>
+                        <td colspan="2">
+                            <button class="btn btn-danger blink">Active</button>
+                        </td>
+                        <td>S 25° 51' 11.4192</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#" class="back-button" onclick="goBack()">Back</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

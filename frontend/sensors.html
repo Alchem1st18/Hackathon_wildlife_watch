@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sensor Data</title>
+  <style>
+    /* Add your custom styles here */
+    .title1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #EFEAD8;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .sensor-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .sensor {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sensor img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.toggle-slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.toggle-slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.toggle-slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider {
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #2196F3;
+      /* Change the color of the progress circle here */
+      cursor: pointer;
+      border: none;
+    }
+
+    .slider::-moz-range-thumb {
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #2196F3;
+      /* Change the color of the progress circle here */
+      cursor: pointer;
+      border: none;
+    }
+
+    .power-container {
+      display: flex;
+      align-items: center;
+      margin-left: 50px;
+      margin-right: 10px;
+    }
+
+    .power-value {
+      font-size: 18px;
+      margin-left: 10px;
+
+    }
+
+
+    .back-button {
+      position: absolute;
+      top: 650px;
+      left: 800px;
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #631717;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #c08282;
+    }
+
+    .power-container {
+      position: relative;
+      /* Add any additional styles for the power-container div */
+    }
+
+    .power-container button {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      /* Add any additional styles for the button */
+    }
+
+    .link-detect {
+      margin-top: 50px;
+      margin-left: 750px;
+    }
+
+    .power-container button:hover {
+      background-color: #23527c;
+    }
+
+    .link-detect {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      /* Add any additional styles for the link-detect button */
+    }
+
+    .link-detect:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+
+    function goBack() {
+      window.history.go(-1);
+    }
+
+    function autoUpdatePower() {
+      var powerSlider = document.getElementById("powerSlider");
+      var powerValue = document.getElementById("powerValue");
+      var currentPower = parseInt(powerSlider.value);
+      var minPower = 0;
+      var maxPower = 100;
+      var powerFluctuation = Math.floor(Math.random() * 31) - 15; // Random value between -15 to 15
+
+      var newPower = currentPower + powerFluctuation;
+      if (newPower > maxPower) {
+        newPower = maxPower;
+      } else if (newPower < minPower) {
+        newPower = minPower;
+      }
+
+      powerSlider.value = newPower;
+      powerValue.textContent = newPower;
+
+      setTimeout(autoUpdatePower, 1000);
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      updatePower();
+      autoUpdatePower();
+    });
+
+    function updatePower() {
+      var powerSlider = document.getElementById("powerSlider");
+      var powerValue = document.getElementById("powerValue");
+      powerValue.textContent = powerSlider.value;
+    }
+
+    function getRandomValue(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var temperatureInterval;
+    var humidityInterval;
+    var lightInterval;
+    var proximityInterval;
+    var motionInterval;
+
+    function toggleTemperature() {
+      var temperatureToggle = document.getElementById("temperatureToggle");
+      if (temperatureToggle.checked) {
+        temperatureInterval = setInterval(function () {
+          var temperature = getRandomValue(20, 30);
+          document.getElementById("temperature").textContent = temperature.toFixed(2) + " °C";
+        }, 2000);
+      } else {
+        clearInterval(temperatureInterval);
+        document.getElementById("temperature").textContent = "Sensor Off";
+      }
+    }
+
+    function toggleHumidity() {
+      var humidityToggle = document.getElementById("humidityToggle");
+      if (humidityToggle.checked) {
+        humidityInterval = setInterval(function () {
+          var humidity = getRandomValue(40, 60);
+          document.getElementById("humidity").textContent = humidity.toFixed(2) + " %";
+        }, 3000);
+      } else {
+        clearInterval(humidityInterval);
+        document.getElementById("humidity").textContent = "Sensor Off";
+      }
+    }
+
+    function toggleLight() {
+      var lightToggle = document.getElementById("lightToggle");
+      if (lightToggle.checked) {
+        lightInterval = setInterval(function () {
+          var light = getRandomValue(0, 100);
+          document.getElementById("light").textContent = light.toFixed(2) + " Lux";
+        }, 4000);
+      } else {
+        clearInterval(lightInterval);
+        document.getElementById("light").textContent = "Sensor Off";
+      }
+    }
+
+    function toggleProximity() {
+      var proximityToggle = document.getElementById("proximityToggle");
+      if (proximityToggle.checked) {
+        proximityInterval = setInterval(function () {
+          var proximity = getRandomValue(0, 10);
+          document.getElementById("proximity").textContent = proximity.toFixed(2) + " cm";
+        }, 5000);
+      } else {
+        clearInterval(proximityInterval);
+        document.getElementById("proximity").textContent = "Sensor Off";
+      }
+    }
+
+    function toggleMotion() {
+      var motionToggle = document.getElementById("motionToggle");
+      if (motionToggle.checked) {
+        motionInterval = setInterval(function () {
+          var motion = Math.random() < 0.5 ? "Detected" : "Not detected";
+          document.getElementById("motion").textContent = motion;
+        }, 6000);
+      } else {
+        clearInterval(motionInterval);
+        document.getElementById("motion").textContent = "Sensor Off";
+      }
+    }
+
+    function toggleSound() {
+      var soundToggle = document.getElementById("soundToggle");
+      if (soundToggle.checked) {
+        soundInterval = setInterval(function () {
+          var sound = Math.random() < 0.5 ? "Alarm ON" : "Alarm ON";
+          document.getElementById("sound").textContent = sound;
+        }, 6000);
+      } else {
+        clearInterval(soundInterval);
+        document.getElementById("sound").textContent = "Sensor Off";
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <h1 class="title1">SENSOR DATA</h1>
+
+  <div class="sensor-container">
+    <div class="sensor">
+      <h2>Temperature Sensor</h2>
+      <img src="images/temp.jpg" alt="">
+      <p id="temperature">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="temperatureToggle" onchange="toggleTemperature()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="sensor">
+      <h2>Humidity Sensor</h2>
+      <img src="images/humidity.jpg" alt="">
+      <p id="humidity">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="humidityToggle" onchange="toggleHumidity()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="sensor">
+      <h2>Light Sensor</h2>
+      <img src="images/light.jpg" alt="">
+      <p id="light">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="lightToggle" onchange="toggleLight()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="sensor">
+      <h2>Proximity Sensor</h2>
+      <img src="images/proximity.jpg" alt="">
+      <p id="proximity">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="proximityToggle" onchange="toggleProximity()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="sensor">
+      <h2>Motion Detection Sensor</h2>
+      <img src="images/motion.jpg" alt="">
+      <p id="motion">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="motionToggle" onchange="toggleMotion()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="sensor">
+      <h2>Sound Sensor</h2>
+      <img src="images/sound.jpg" alt="">
+      <p id="sound">Sensor Off</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="soundToggle" onchange="toggleSound()">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  </div>
+  <h2 class="power-container">Electrical Power</h2>
+  <div class="power-container">
+    <input type="range" id="powerSlider" min="0" max="100" value="0" class="slider" onchange="updatePower()">
+    <span class="power-value" id="powerValue">0</span>
+
+    <!-- Rectangular switch -->
+
+  </div>
+  <button onclick="redirectToURL()" class="link-detect">Go to Detection</button>
+
+  <script>
+    function redirectToURL() {
+      window.location.href = "http://127.0.0.1:5000";
+    }
+  </script>
+
+
+  <a href="#" class="back-button" onclick="goBack()">Back</a>
+
+</body>
+
+</html>

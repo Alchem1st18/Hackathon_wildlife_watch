@@ -1,0 +1,295 @@
+body {
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-family: Montserrat;
+  font-size: 3.5rem;
+  line-height: 1.5;
+  padding-bottom: 10px;
+
+}
+
+h2 {
+
+  font-family: "Montserrat";
+  line-height: 3rem;
+  padding-left: 9%;
+  padding-right: 9%;
+  padding-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-size: 2rem;
+
+}
+
+
+#title {
+  background-color: #228B22;
+  color: #fff;
+  padding-bottom: 60px;
+}
+
+.container-fluid {
+  padding: 1% 10% 10%;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.navbar {
+  padding: 0 0 70px;
+}
+
+.nav-item {
+  padding: 0 15px;
+}
+
+.nav-link {
+  font-family: "Montserrat-light";
+  font-size: 1.2rem;
+}
+
+.dwnld {
+  margin: 5% 1% 5% 2%;
+}
+
+.timg {
+  width: 26%;
+  border-radius: 10%;
+  transform: scale(1.2, 1.2);
+  position: absolute;
+
+  margin-left: 150px;
+  margin-bottom: 120px;
+}
+
+
+#features {
+  position: relative;
+  z-index: 1;
+  padding: 14% 14%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.light {
+  font-family: "Montserrat-light";
+  font-size: 1.1rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #8f8f8f;
+}
+
+.pics {
+  color: #228B22;
+  margin-bottom: 1.4rem;
+}
+
+.pics:hover {
+  color: #228B22;
+}
+
+
+#testimonials {
+
+
+  background-color: #228B22;
+  color: white;
+  text-align: center;
+  height: 600px;
+
+
+}
+
+.carousel-item {
+
+  padding: 5% 10%;
+}
+
+.test1 {
+  margin-top: 120px;
+  margin-bottom: 100px;
+  width: 15%;
+  transform: scale(3, 3);
+
+
+  border-radius: 0%;
+  float: none;
+}
+
+
+#press {
+  background-color: #228B22;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.company {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 18%;
+}
+
+.subbut {
+  margin-left: 160px;
+  margin-top: 10px;
+}
+
+.phead {
+  text-align: center;
+}
+
+#pricing {
+  text-align: left;
+  padding: 75px 75px;
+}
+
+.price {
+  padding: 2% 2%;
+}
+
+.mailll {
+  transform: scale(0.7, 0.7);
+  position: absolute;
+  right: 200px;
+  top: 2050px;
+
+}
+
+#cta {
+  background-color: #228B22;
+  text-align: center;
+  padding: 6% 10% 7%;
+  color: #fff;
+}
+
+.finale {
+  font-size: 3.5rem;
+  padding-bottom: 20px;
+}
+
+.down {
+  margin: 25px 10px 10px 10px;
+  font-family: "Montserrat";
+}
+
+.down:hover {
+  background-color: #228B22;
+  border-color: #228B22;
+}
+
+.log {
+  padding-right: 8px;
+}
+
+
+#footer {
+  padding: 4% 0 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #8f8f8f;
+  font-family: "Montserrat-light";
+}
+
+.social {
+  padding: 0 8px 10px;
+  width: 100px;
+  color: black;
+}
+
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.titless {
+  position: relative;
+  z-index: 1;
+  /* Add any necessary styling */
+}
+
+
+
+
+
+
+/* Font size for h4 and h2 */
+h4.finale {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+/* Social icon styles */
+ul.social-icon {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icon li {
+  display: inline-block;
+}
+
+.social-icon li a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.social-icon li a:hover {
+  opacity: 0.7;
+}
+
+/* Font Awesome icon styles */
+.social-icon li a i {
+  font-size: 3.5rem;
+}
+
+
+.fa-facebook:hover {
+  color: #004df2;
+  background-color: transparent;
+}
+
+
+.fa-github:hover {
+  color: #a000f7;
+  background-color: transparent;
+}
+
+.fa-instagram:hover {
+  color: #ff00d0;
+  background-color: transparent;
+}
+
+.fa-twitter:hover {
+  color: #1DA1F2;
+  background-color: transparent;
+}
+
+.fa-envelope:hover{
+  color:blue;
+  background-color: transparent;
+}
+
+.mailll{
+  margin-top: 68px;
+}
